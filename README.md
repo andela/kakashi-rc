@@ -2,6 +2,9 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/andela/kakashi-rc/badge.svg?branch=develop)](https://coveralls.io/github/andela/kakashi-rc?branch=develop)
 [![CircleCI](https://circleci.com/gh/andela/kakashi-rc.svg?style=svg)](https://circleci.com/gh/andela/kakashi-rc)
+[![Build Status](https://travis-ci.org/andela/kakashi-rc.svg?branch=master)](https://travis-ci.org/andela/kakashi-rc)
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
+
 
 Reaction is an event-driven, real-time reactive commerce platform built with JavaScript (ES6). It plays nicely with npm and Docker, and is based entirely on JavaScript, CSS, and HTML. 
 
