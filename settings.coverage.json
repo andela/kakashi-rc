@@ -1,0 +1,7 @@
+{
+    "coverage": {
+        "coverage_app_folder": "/Users/you/meteor-app/",
+        "is_coverage_active": true,
+        "verbose": false
+    }
+}
