@@ -1,12 +1,10 @@
 language: node_js
 node_js:
   - "7.4.0"
-cache: {
-    "directories": [
-      "$HOME/.meteor",
-      "$HOME/.npm"
-    ]
- },
+cache: 
+  directories:
+    - $HOME/.meteor
+    - $HOME/.npm
 
 before_cache:
     - rm -f $HOME/.meteor/log/*.log
@@ -21,6 +19,6 @@ before_install:
   - meteor npm install
 
 script: 
-    "mkdir .coverage",
-    "reaction test",
-    "cat .coverage/lcov.info | coveralls || cat .coverage/lcov.info || true",
+  - mkdir .coverage
+  - reaction test
+  - cat .coverage/lcov.info | coveralls || cat .coverage/lcov.info || true
