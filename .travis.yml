@@ -11,14 +11,13 @@ before_script:
   - if [[ -L ~/.meteor/meteor ]]; then ln -s ~/.meteor/meteor ~/bin/meteor; export PATH="$PATH:~/bin"; fi
   - hash meteor 2>/dev/null || curl https://install.meteor.com | /bin/sh
   - npm i -g reaction-cli
+  - meteor npm install
 
 before_install:
   - export CHROME_BIN=google-chrome
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 
-before_script:
-  - meteor npm install
 
 script: reaction test
 
