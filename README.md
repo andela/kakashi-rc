@@ -1,6 +1,10 @@
 # Reaction
 
-[![Coverage Status](https://coveralls.io/repos/github/andela/kakashi-rc/badge.svg?branch=develop)](https://coveralls.io/github/andela/kakashi-rc?branch=develop)
+[![bitHound Overall Score](https://www.bithound.io/github/reactioncommerce/reaction/badges/score.svg)](https://www.bithound.io/github/reactioncommerce/reaction)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/reactioncommerce/reaction/badges/devDependencies.svg)](https://www.bithound.io/github/reactioncommerce/reaction/9a858eb459d7260d5ae59124c2b364bc791a3e70/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/reactioncommerce/reaction/badges/code.svg)](https://www.bithound.io/github/reactioncommerce/reaction)
+[![Gitter](https://badges.gitter.im/JoinChat.svg)](https://gitter.im/reactioncommerce/reaction?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![CircleCI](https://circleci.com/gh/andela/kakashi-rc.svg?style=svg)](https://circleci.com/gh/andela/kakashi-rc)
 [![Build Status](https://travis-ci.org/andela/kakashi-rc.svg?branch=master)](https://travis-ci.org/andela/kakashi-rc)
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
