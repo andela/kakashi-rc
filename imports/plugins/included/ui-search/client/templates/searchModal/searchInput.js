@@ -11,6 +11,7 @@ Template.searchInput.helpers({
           token: "",
           collection: ProductSearch,
           field: "title",
+          matchAll: true,
           template: Template.titlePill
         }
       ]
