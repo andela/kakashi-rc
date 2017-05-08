@@ -102,3 +102,4 @@ twitter-config-ui@1.0.0
 lmieulet:meteor-coverage
 practicalmeteor:mocha@2.4.5_6
 practicalmeteor:mocha-console-runner
+mizzao:autocomplete
