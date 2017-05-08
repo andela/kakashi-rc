@@ -8,7 +8,6 @@ import Prerender from "./prerender";
 import { initTemplates } from "/server/api/core/templates";
 import restApi from "./restApi";
 
-
 export default function () {
   Accounts();
   i18n();
