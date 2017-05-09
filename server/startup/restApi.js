@@ -20,16 +20,21 @@ export default () => {
     });
 
     // Set Endpoint Configuration
-    const CollectionOption = (collection) => {
+    const CollectionOption = (collection, collectionName) => {
+      let isAuth;
+      if (collectionName === "Accounts" ||
+          collectionName === "Orders" ||
+          collectionName === "Emails" ||
+          collectionName === "Sms") {
+        isAuth = true;
+      } else {
+        isAuth = false;
+      }
       return {
-        routeOptions: {
-          authRequired: true,
-          roleRequired: "Admin"
-        },
         endpoints: {
           // This request GETS a collection record
           get: {
-            authRequired: false,
+            authRequired: isAuth,
             action() {
               const CollectionRecords = collection.find();
               if (CollectionRecords) {
@@ -115,14 +120,14 @@ export default () => {
 
     // Generates: GET, POST on /api/{the collection} and GET, PUT, PATCH, DELETE on
     // /api/items/{the record :id} for the collection
-    Api.addCollection(Accounts, CollectionOption(Accounts));
-    Api.addCollection(Cart, CollectionOption(Cart));
-    Api.addCollection(Orders, CollectionOption(Orders));
-    Api.addCollection(Products, CollectionOption(Products));
-    Api.addCollection(Packages, CollectionOption(Packages));
-    Api.addCollection(Shops, CollectionOption(Shops));
-    Api.addCollection(Emails, CollectionOption(Emails));
-    Api.addCollection(Shipping, CollectionOption(Shipping));
-    Api.addCollection(Sms, CollectionOption(Sms));
+    Api.addCollection(Accounts, CollectionOption(Accounts, "Accounts"));
+    Api.addCollection(Cart, CollectionOption(Cart, "Cart"));
+    Api.addCollection(Orders, CollectionOption(Orders, "Orders"));
+    Api.addCollection(Products, CollectionOption(Products, "Products"));
+    Api.addCollection(Packages, CollectionOption(Packages, "Packages"));
+    Api.addCollection(Shops, CollectionOption(Shops, "Shops"));
+    Api.addCollection(Emails, CollectionOption(Emails, "Emails"));
+    Api.addCollection(Shipping, CollectionOption(Shipping, "Shipping"));
+    Api.addCollection(Sms, CollectionOption(Sms, "Sms"));
   }
 };
