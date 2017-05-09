@@ -6,7 +6,6 @@
 [![Gitter](https://badges.gitter.im/JoinChat.svg)](https://gitter.im/reactioncommerce/reaction?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![CircleCI](https://circleci.com/gh/andela/kakashi-rc.svg?style=svg)](https://circleci.com/gh/andela/kakashi-rc)
-[![Build Status](https://travis-ci.org/andela/kakashi-rc.svg?branch=master)](https://travis-ci.org/andela/kakashi-rc)
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/codeclimate/codeclimate)
 
 
