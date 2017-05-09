@@ -23,18 +23,21 @@ export default () => {
     const CollectionOption = (collection, collectionName) => {
       let isAuth;
       if (collectionName === "Accounts" ||
-          collectionName === "Orders" ||
-          collectionName === "Emails" ||
-          collectionName === "Sms") {
+        collectionName === "Orders" ||
+        collectionName === "Emails" ||
+        collectionName === "Sms") {
         isAuth = true;
       } else {
         isAuth = false;
       }
       return {
+        routeOptions: {
+          authRequired: isAuth
+        },
         endpoints: {
           // This request GETS a collection record
           get: {
-            authRequired: isAuth,
+            authRequired: true,
             action() {
               const CollectionRecords = collection.find();
               if (CollectionRecords) {
@@ -54,6 +57,7 @@ export default () => {
 
           // This request CREATES a collection record
           post: {
+            authRequired: true,
             action() {
               const isCreated = collection.insert(this.bodyParams);
               if (isCreated) {
@@ -74,6 +78,7 @@ export default () => {
 
           // This request UPDATES a collection record
           put: {
+            authRequired: true,
             action() {
               const isUpdated = collection.update(this.urlParams.id, {
                 $set: this.bodyParams
@@ -95,6 +100,7 @@ export default () => {
 
           // This request DELETES a collection record
           delete: {
+            authRequired: true,
             roleRequired: ["author", "admin"],
             action: function () {
               if (collection.remove(this.urlParams.id)) {
