@@ -1,10 +1,11 @@
-import { Meteor } from "meteor/meteor";
+import {
+  Meteor
+} from "meteor/meteor";
 import {
   Accounts,
   Cart,
   Orders,
   Products,
-  Packages,
   Shops,
   Emails,
   Shipping,
@@ -22,13 +23,11 @@ export default () => {
     // Set Endpoint Configuration
     const CollectionOption = (collection, collectionName) => {
       let isAuth;
-      if (collectionName === "Accounts" ||
-        collectionName === "Orders" ||
-        collectionName === "Emails" ||
-        collectionName === "Sms") {
-        isAuth = true;
-      } else {
+      if (collectionName === "Products" ||
+          collectionName === "Shops") {
         isAuth = false;
+      } else {
+        isAuth = true;
       }
       return {
         routeOptions: {
@@ -37,9 +36,26 @@ export default () => {
         endpoints: {
           // This request GETS a collection record
           get: {
-            authRequired: true,
             action() {
               const CollectionRecords = collection.find();
+              if (CollectionRecords) {
+                return {
+                  statusCode: 201,
+                  status: "success",
+                  data: CollectionRecords
+                };
+              }
+              return {
+                statusCode: 404,
+                status: "false",
+                message: "Records could not be found"
+              };
+            }
+          },
+
+          get: {
+            action() {
+              const CollectionRecords = collection.findOne(this.urlParams.id);
               if (CollectionRecords) {
                 return {
                   statusCode: 201,
@@ -130,7 +146,6 @@ export default () => {
     Api.addCollection(Cart, CollectionOption(Cart, "Cart"));
     Api.addCollection(Orders, CollectionOption(Orders, "Orders"));
     Api.addCollection(Products, CollectionOption(Products, "Products"));
-    Api.addCollection(Packages, CollectionOption(Packages, "Packages"));
     Api.addCollection(Shops, CollectionOption(Shops, "Shops"));
     Api.addCollection(Emails, CollectionOption(Emails, "Emails"));
     Api.addCollection(Shipping, CollectionOption(Shipping, "Shipping"));
