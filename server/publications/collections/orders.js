@@ -52,6 +52,7 @@ const OrderHelper =  {
         };
         break;
 
+     // Orders that have been cancelled,
       case "canceled":
         query = {
           "shopId": shopId,
@@ -116,6 +117,7 @@ Meteor.publish("PaginatedOrders", function (filter, limit) {
     Counts.publish(this, "newOrder-count", Orders.find(OrderHelper.makeQuery("new")), { noReady: true });
     Counts.publish(this, "processingOrder-count", Orders.find(OrderHelper.makeQuery("processing")), { noReady: true });
     Counts.publish(this, "completedOrder-count", Orders.find(OrderHelper.makeQuery("completed")), { noReady: true });
+    Counts.publish(this, "cancelledOrder-count", Orders.find(OrderHelper.makeQuery("cancelled")), { noReady: true });
     return Orders.find(OrderHelper.makeQuery(filter), { limit: limit });
   }
   return Orders.find({
