@@ -23,8 +23,8 @@ export default () => {
     // Set Endpoint Configuration
     const CollectionOption = (collection, collectionName) => {
       let isAuth;
-      if (collectionName === "Products" ||
-          collectionName === "Shops") {
+      const allowedRoutes = ["Products", "Shops"];
+      if (allowedRoutes.includes(collectionName)) {
         isAuth = false;
       } else {
         isAuth = true;
@@ -37,25 +37,12 @@ export default () => {
           // This request GETS a collection record
           get: {
             action() {
-              const CollectionRecords = collection.find();
-              if (CollectionRecords) {
-                return {
-                  statusCode: 201,
-                  status: "success",
-                  data: CollectionRecords
-                };
+              let CollectionRecords;
+              if (this.urlParams.id) {
+                CollectionRecords = collection.findOne(this.urlParams.id);
+              } else {
+                CollectionRecords = collection.find();
               }
-              return {
-                statusCode: 404,
-                status: "false",
-                message: "Records could not be found"
-              };
-            }
-          },
-
-          get: {
-            action() {
-              const CollectionRecords = collection.findOne(this.urlParams.id);
               if (CollectionRecords) {
                 return {
                   statusCode: 201,
