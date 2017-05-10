@@ -28,4 +28,26 @@
     </main>
 
   {{/if}}
+  {{>embedSocial}}
+</template>
+
+<template name="embedSocial">
+  <div class="row">
+    <div class="{{testDisplay.facebook}}">
+      {{#if facebook}}
+      <h3 style =margin-left:100px>Facebook Feed</h3>
+      <iframe src={{facebook}} width="300" height="300" 
+      style="border:none;overflow:hidden; margin-left:100px" 
+      scrolling="yes" frameborder="0" allowTransparency="true"></iframe>
+      {{/if}}
+    </div>
+    <div class="{{testDisplay.twitter}}" style="height: 300px; overflow-y: scroll;">
+      <h3>Twitter Feed</h3>
+      {{#if twitter}}
+        <a class="twitter-timeline" href="{{twitter}}">Tweets by {{twitter}}</a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      {{/if}}
+    </div>
+  </div>
+  <script id="dsq-count-scr" src="//krc-1.disqus.com/count.js" async></script>
 </template>
