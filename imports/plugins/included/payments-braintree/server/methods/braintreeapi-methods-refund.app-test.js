@@ -56,7 +56,7 @@ describe("braintree/refund/create", () => {
     });
     let refundResult = null;
     let refundError = null;
-    Meteor.call("braintree/refund/create", paymentMethod, paymentMethod.amount, (error, result) => {3
+    Meteor.call("braintree/refund/create", paymentMethod, paymentMethod.amount, (error, result) => {
       refundResult = result;
       refundError = error;
       expect(refundError).to.be.undefined;
