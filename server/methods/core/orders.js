@@ -253,7 +253,7 @@ export const methods = {
    * @param {Object} newComment - comment
    * @return {Object} return results of several operations
    */
-  "orders/cancelOrder": (order, newComment) => {
+  "orders/cancelOrder": function (order, newComment) {
     check(order, Object);
     check(newComment, Object);
 
@@ -279,7 +279,7 @@ export const methods = {
     * @param {Object} newComment - new comment object
     * @return {Object} return updated result
     */
-  "orders/cancelOrders": (order, newComment) => {
+  "orders/cancelOrders": function (order, newComment) {
     check(order, Object);
     check(newComment, Object);
 

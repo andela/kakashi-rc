@@ -4,10 +4,10 @@ import { expect } from "meteor/practicalmeteor:chai";
 import { sinon } from "meteor/practicalmeteor:sinon";
 import { StripeApi } from "./stripeapi";
 
-describe("stripe/refund/create", () => {
+describe("stripe/refund/create", function () {
   let sandbox;
 
-  beforeEach(() => {
+  beforeEach(function () {
     sandbox = sinon.sandbox.create();
   });
 
@@ -15,7 +15,7 @@ describe("stripe/refund/create", () => {
     sandbox.restore();
   });
 
-  it("should call StripeApi.methods.createRefund with the proper parameters and return saved = true", (done) => {
+  it("should call StripeApi.methods.createRefund with the proper parameters and return saved = true", function (done)  {
     const paymentMethod = {
       processor: "Stripe",
       storedCard: "Visa 4242",
@@ -49,7 +49,7 @@ describe("stripe/refund/create", () => {
 
     let refundResult = null;
     let refundError = null;
-    Meteor.call("stripe/refund/create", paymentMethod, paymentMethod.amount, (error, result) => {
+    Meteor.call("stripe/refund/create", paymentMethod, paymentMethod.amount, function (error, result) {
       refundResult = result;
       refundError = error;
       expect(refundError).to.be.undefined;

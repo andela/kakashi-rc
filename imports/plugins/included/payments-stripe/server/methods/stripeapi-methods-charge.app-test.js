@@ -102,12 +102,12 @@ describe("Stripe.authorize", () => {
     const total = "22.98";
     const currency = "EUR";
 
-    sandbox.stub(StripeApi.methods.createCharge, "call", () => {
+    sandbox.stub(StripeApi.methods.createCharge, "call", function () {
       return stripeChargeResult;
     });
     // spyOn(StripeApi.methods.createCharge, "call").and.returnValue(stripeChargeResult);
     let chargeResult = null;
-    Stripe.authorize(form, { total: total, currency: currency }, (error, result) => {
+    Stripe.authorize(form, { total: total, currency: currency }, function (error, result) {
       chargeResult = result;
       expect(chargeResult).to.not.be.undefined;
       expect(chargeResult.saved).to.be.true;
@@ -129,7 +129,7 @@ describe("Stripe.authorize", () => {
   });
 });
 
-describe("Stripe.authorize", () => {
+describe("Stripe.authorize", function () {
   let sandbox;
 
   beforeEach(() => {
@@ -140,7 +140,7 @@ describe("Stripe.authorize", () => {
     sandbox.restore();
   });
 
-  it("should return saved = false when card is declined", (done) => {
+  it("should return saved = false when card is declined", function (done) {
     const form = {
       cvv2: "345",
       expire_month: "4",
@@ -174,13 +174,13 @@ describe("Stripe.authorize", () => {
           statusCode: 402
         }
       };
-    sandbox.stub(StripeApi.methods.createCharge, "call", () => {
+    sandbox.stub(StripeApi.methods.createCharge, "call", function ()  {
       return stripeDeclineResult;
     });
     // spyOn(StripeApi.methods.createCharge, "call").and.returnValue(stripeDeclineResult);
 
     let chargeResult = null;
-    Stripe.authorize(form, { total: total, currency: currency }, (error, result) => {
+    Stripe.authorize(form, { total: total, currency: currency }, function (error, result) {
       chargeResult = result;
 
       expect(chargeResult).to.not.be.undefined;
@@ -204,7 +204,7 @@ describe("Stripe.authorize", () => {
   });
 });
 
-describe("Stripe.authorize", () => {
+describe("Stripe.authorize", function () {
   let sandbox;
 
   beforeEach(() => {
@@ -215,7 +215,7 @@ describe("Stripe.authorize", () => {
     sandbox.restore();
   });
 
-  it("should return saved = false when an expired card is returned", (done) => {
+  it("should return saved = false when an expired card is returned", function (done) {
     // Note that this test number makes the Stripe API return this error, it is
     // not looking at the actual expiration date.
     const form = {
@@ -251,12 +251,12 @@ describe("Stripe.authorize", () => {
           statusCode: 402
         }
       };
-    sandbox.stub(StripeApi.methods.createCharge, "call", () => {
+    sandbox.stub(StripeApi.methods.createCharge, "call", function ()  {
       return stripeExpiredCardResult;
     });
 
     let chargeResult = null;
-    Stripe.authorize(form, { total: total, currency: currency }, (error, result) => {
+    Stripe.authorize(form, { total: total, currency: currency }, function (error, result) {
       chargeResult = result;
       expect(chargeResult).to.not.be.undefined;
       expect(chargeResult.saved).to.be.false;
