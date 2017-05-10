@@ -12,6 +12,20 @@ import {
   DEFAULT_FILTER_NAME
 } from "../../lib/constants";
 
+const orderFilters = [{
+  name: "new",
+  label: "New"
+}, {
+  name: "processing",
+  label: "Processing"
+}, {
+  name: "completed",
+  label: "Completed"
+}, {
+  name: "cancelled",
+  label: "Cancelled"
+}];
+
 const OrderHelper =  {
   makeQuery(filter) {
     let query = {};

@@ -245,6 +245,32 @@ export const methods = {
       return false;
     });
   },
+
+/**
+  * order/cancelOrder
+  * @summary Adds the cancel order feature
+  * @param {Object} order  order object
+  * @param {Object} newComment  comment
+  * @return {Object} return results of several operations
+  */
+  "orders/cancelOrder": function (order, newComment) {
+    check(order, Object);
+    check(newComment, Object);
+
+    // Update Order
+    return Orders.update(order._id, {
+      $set: {
+        "workflow.status": "cancelled"
+      },
+      $push: {
+        comments: newComment
+      },
+      $addToSet: {
+        "workflow.workflow": "coreOrderWorkflow/cancelled"
+      }
+    });
+  },
+
   /**
     * orders/cancelOrder
     *
