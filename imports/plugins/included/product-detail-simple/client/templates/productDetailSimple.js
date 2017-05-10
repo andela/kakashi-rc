@@ -27,7 +27,7 @@ Template.embedDisqus.helpers({
 
   addDisqusThread() {
     const d = document;
-    s = d.createElement("script");
+    const s = d.createElement("script");
     s.src = "https://krc-1.disqus.com/embed.js";
     s.setAttribute("data-timestamp", +new Date());
     (d.head || d.body).appendChild(s);

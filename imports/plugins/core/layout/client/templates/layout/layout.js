@@ -48,7 +48,7 @@ Template.embedSocial.helpers({
       const sHeader = "small_header=false&adapt_container_width=true";
       const remainder = "&hide_cover=false&show_facepile=false&";
       const appId = `appId=${facebookConfig.appId}`;
-      url = `${baseUrl}${href}${dimensions}${sHeader}${remainder}${appId}`;
+      const url = `${baseUrl}${href}${dimensions}${sHeader}${remainder}${appId}`;
       return url;
     }
     return false;
