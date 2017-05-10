@@ -38,7 +38,7 @@ export default () => {
           get: {
             action() {
               let CollectionRecords;
-              if (this.urlParams.id) {
+              if (this.urlParams) {
                 CollectionRecords = collection.findOne(this.urlParams.id);
               } else {
                 CollectionRecords = collection.find();
