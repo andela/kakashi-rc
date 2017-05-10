@@ -41,10 +41,11 @@
       scrolling="yes" frameborder="0" allowTransparency="true"></iframe>
       {{/if}}
     </div>
-    <div class="{{testDisplay.twitter}}" style="height: 300px; overflow-y: scroll;">
-      <h3>Twitter Feed</h3>
+    <div class="{{testDisplay.twitter}}" style="margin-left:100px;
+     height: 300px; width: 300px;">
       {{#if twitter}}
-        <a class="twitter-timeline" href="{{twitter}}">Tweets by {{twitter}}</a>
+      <h3>Tweeter Feed</h3>
+        <a class="twitter-timeline" href="{{twitter}}" data-tweet-limit= "2">Tweets by {{twitter}}</a>
         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
       {{/if}}
     </div>
