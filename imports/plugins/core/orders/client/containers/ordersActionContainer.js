@@ -35,6 +35,8 @@ function composer(props, onData) {
       filter.count = Counts.get("processingOrder-count");
     } else if (filter.name === "completed") {
       filter.count = Counts.get("completedOrder-count");
+    } else if (filter.name === "cancelled") {
+      filter.count = Counts.get("cancelledOrder-count");
     }
 
     return filter;

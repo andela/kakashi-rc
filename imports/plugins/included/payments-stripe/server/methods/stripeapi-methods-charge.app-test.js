@@ -44,19 +44,19 @@ const stripeChargeResult = {
 };
 
 
-describe("Stripe.authorize", function () {
+describe("Stripe.authorize", () => {
   let sandbox;
 
-  beforeEach(function () {
+  beforeEach(() => {
     sandbox = sinon.sandbox.create();
   });
 
-  afterEach(function () {
+  afterEach(() => {
     sandbox.restore();
   });
 
-  it("should call StripeApi.methods.createCharge with the proper parameters and return saved = true", function (done) {
-    sandbox.stub(StripeApi.methods.createCharge, "call", function () {
+  it("should call StripeApi.methods.createCharge with the proper parameters and return saved = true", () => {
+    sandbox.stub(StripeApi.methods.createCharge, "call", () => {
       return stripeChargeResult;
     });
     const cardData = {
@@ -70,7 +70,7 @@ describe("Stripe.authorize", function () {
     const total = "22.98";
     const currency = "USD";
     let chargeResult = null;
-    Stripe.authorize(cardData, { total: total, currency: currency }, function (error, result) {
+    Stripe.authorize(cardData, { total, currency }, (error, result) => {
       chargeResult = result;
       expect(chargeResult).to.not.be.undefined;
       expect(chargeResult.saved).to.be.true;
@@ -79,18 +79,18 @@ describe("Stripe.authorize", function () {
   });
 });
 
-describe("Stripe.authorize", function () {
+describe("Stripe.authorize", () => {
   let sandbox;
 
-  beforeEach(function () {
+  beforeEach(() => {
     sandbox = sinon.sandbox.create();
   });
 
-  afterEach(function () {
+  afterEach(() => {
     sandbox.restore();
   });
 
-  it("should properly charge a card when using a currency besides USD", function (done) {
+  it("should properly charge a card when using a currency besides USD", (done) => {
     const form = {
       cvv2: "345",
       expire_month: "4",
@@ -132,11 +132,11 @@ describe("Stripe.authorize", function () {
 describe("Stripe.authorize", function () {
   let sandbox;
 
-  beforeEach(function () {
+  beforeEach(() => {
     sandbox = sinon.sandbox.create();
   });
 
-  afterEach(function () {
+  afterEach(() => {
     sandbox.restore();
   });
 
@@ -174,7 +174,7 @@ describe("Stripe.authorize", function () {
           statusCode: 402
         }
       };
-    sandbox.stub(StripeApi.methods.createCharge, "call", function () {
+    sandbox.stub(StripeApi.methods.createCharge, "call", function ()  {
       return stripeDeclineResult;
     });
     // spyOn(StripeApi.methods.createCharge, "call").and.returnValue(stripeDeclineResult);
@@ -207,11 +207,11 @@ describe("Stripe.authorize", function () {
 describe("Stripe.authorize", function () {
   let sandbox;
 
-  beforeEach(function () {
+  beforeEach(() => {
     sandbox = sinon.sandbox.create();
   });
 
-  afterEach(function () {
+  afterEach(() => {
     sandbox.restore();
   });
 
@@ -251,7 +251,7 @@ describe("Stripe.authorize", function () {
           statusCode: 402
         }
       };
-    sandbox.stub(StripeApi.methods.createCharge, "call", function () {
+    sandbox.stub(StripeApi.methods.createCharge, "call", function ()  {
       return stripeExpiredCardResult;
     });
 
