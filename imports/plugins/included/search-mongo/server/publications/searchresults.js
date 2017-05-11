@@ -10,7 +10,10 @@ function getProductFindTerm(searchTerm, searchTags, userId) {
   const shopId = Reaction.getShopId();
   const findTerm = {
     shopId: shopId,
-    $text: { $search: searchTerm }
+    title: {
+      $regex: searchTerm,
+      $options: "i"
+    }
   };
   if (searchTags.length) {
     findTerm.hashtags = { $all: searchTags };
@@ -35,6 +38,7 @@ getResults.products = function (searchTerm, facets, maxResults, userId) {
         description: 1,
         handle: 1,
         price: 1,
+        vendor: 1,
         isSoldOut: 1,
         isLowQuantity: 1,
         isBackorder: 1
