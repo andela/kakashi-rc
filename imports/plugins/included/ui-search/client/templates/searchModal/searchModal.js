@@ -227,8 +227,8 @@ Template.searchModal.events({
     });
   },
   "click [data-event-action=toggleFilter]": function () {
-    $(".sort-filter-div").toggle();
-    $(".product-search-result-div").toggleClass("col-md-10");
+    $(".js-search-modal").toggleClass("filters-on");
+    // $(".product-search-result-div").toggleClass("col-md-10");
   },
   "click [data-event-action=clearSearch]": function (event, templateInstance) {
     $("#search-input").val("");
