@@ -676,6 +676,8 @@ Meteor.methods({
    */
   "accounts/addVendorPermissions": function (userId, group = Reaction.getCurrentShop()._id) {
     const vendorRoles = [
+      "reaction-orders",
+      "reaction-dashboard",
       "dashboard",
       "createProduct",
       "orders",
