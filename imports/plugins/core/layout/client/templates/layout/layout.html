@@ -23,12 +23,13 @@
         {{> Template.dynamic template=template}}
         <!-- end template region -->
       {{/if}}
-
-      <footer class="reaction-navigation-footer footer-default">{{> Template.dynamic template=layoutFooter}}</footer>
+      {{>embedSocial}}
+      <footer class="reaction-navigation-footer footer-default">
+        {{> Template.dynamic template=layoutFooter}}
+        </footer>
     </main>
-
   {{/if}}
-  {{>embedSocial}}
+  
 </template>
 
 <template name="embedSocial">
