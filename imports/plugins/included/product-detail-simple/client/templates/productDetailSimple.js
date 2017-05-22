@@ -13,6 +13,14 @@ Template.productDetailSimple.helpers({
   }
 });
 
+Template.productDetailSimpleToolbar.helpers({
+  PublishContainerComponent() {
+    return {
+      component: PublishContainer
+    };
+  }
+});
+
 Template.embedDisqus.onCreated(function () {
   this.state = new ReactiveDict();
   this.state.setDefault({
