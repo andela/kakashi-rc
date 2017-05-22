@@ -1,11 +1,30 @@
 <template name="productDetailSimple">
-  <div>
-    {{> React component=PDC}}
-  </div>
+  {{#if isEnabled}}
+    {{!-- Use new product detail page --}}
+    <div>
+      {{> React component=PDC}}
+    </div>
+  {{else}}
+    {{!-- Use old product detail page --}}
+    {{> productDetail }}
+  {{/if}}
+  {{>embedDisqus}}
 </template>
 
 <template name="productDetailSimpleToolbar">
   <div>
     {{> React PublishContainerComponent}}
   </div>
+</template>
+
+<template name="embedDisqus">
+<div class="row">
+  <div class="{{testDisplay.disqus}}">
+    <div id="disqus_thread" class="container-main">
+      <h3>Disqus Comments</h3>
+      {{addDisqusThread}}
+    </div>
+  </div>
+  </div>
+  <script id="dsq-count-scr" src="//krc-1.disqus.com/count.js" async></script>
 </template>
