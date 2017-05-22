@@ -7,7 +7,8 @@ class PaystackSettingsForm extends Component {
 
     this.state = {
       settings: {
-        apiKey: "sk_test_1ad51a472f7065a3dc392facf8f6e642b5a359e4"
+        apiSecretKey: "sk_test_1ad51a472f7065a3dc392facf8f6e642b5a359e4",
+        apiPublicKey: "pk_test_fb8c618a8e31193b0999c68d41792fea0a804d03"
       }
     };
 
@@ -35,11 +36,18 @@ class PaystackSettingsForm extends Component {
 
         <form onSubmit={this.props.onSubmit}>
           <TextField
-            label="API Key"
-            name="apiKey"
+            label="API Secret Key"
+            name="apiSecretKey"
             type="text"
             onChange={this.handleStateChange}
-            value={settings.apiKey}
+            value={settings.apiSecretKey}
+          />
+          <TextField
+            label="API Public Key"
+            name="apiPublicKey"
+            type="text"
+            onChange={this.handleStateChange}
+            value={settings.apiPublicKey}
           />
 
           <button className="btn btn-primary pull-right" type="submit">
