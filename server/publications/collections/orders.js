@@ -87,9 +87,9 @@ Meteor.publish("Orders", function () {
     return this.ready();
   }
   if (Roles.userIsInRole(this.userId, ["admin", "owner"], shopId)) {
-    return Orders.find({
-      shopId: shopId
-    });
+    return Orders.find({ items: { $elemMatch: { shopId: shopId } } });
+  } else if (Meteor.call("vendorOrders", this.userId)) {
+    return Orders.find({ items: { $elemMatch: { vendorId: this.userId } } });
   }
   return Orders.find({
     shopId: shopId,
