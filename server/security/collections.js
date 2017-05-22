@@ -102,7 +102,7 @@ export default function () {
     Templates,
     Jobs
   ]).ifHasRole({
-    role: "admin",
+    role: [admin],
     group: Reaction.getShopId()
   }).ifShopIdMatches().exceptProps(["shopId"]).allowInClientCode();
 
