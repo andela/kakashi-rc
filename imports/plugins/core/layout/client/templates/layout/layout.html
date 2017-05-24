@@ -23,9 +23,33 @@
         {{> Template.dynamic template=template}}
         <!-- end template region -->
       {{/if}}
-
-      <footer class="reaction-navigation-footer footer-default">{{> Template.dynamic template=layoutFooter}}</footer>
+      {{>embedSocial}}
+      <footer class="reaction-navigation-footer footer-default">
+        {{> Template.dynamic template=layoutFooter}}
+        </footer>
     </main>
-
   {{/if}}
+  
+</template>
+
+<template name="embedSocial">
+  <div class="row">
+    <div class="{{testDisplay.facebook}}">
+      {{#if facebook}}
+      <h3 style =margin-left:100px>Facebook Feed</h3>
+      <iframe src={{facebook}} width="300" height="300" 
+      style="border:none;overflow:hidden; margin-left:100px" 
+      scrolling="yes" frameborder="0" allowTransparency="true"></iframe>
+      {{/if}}
+    </div>
+    <div class="{{testDisplay.twitter}}" style="margin-left:100px;
+     height: 300px; width: 300px;">
+      {{#if twitter}}
+      <h3>Tweeter Feed</h3>
+        <a class="twitter-timeline" href="{{twitter}}" data-tweet-limit= "2">Tweets by {{twitter}}</a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      {{/if}}
+    </div>
+  </div>
+  <script id="dsq-count-scr" src="//krc-1.disqus.com/count.js" async></script>
 </template>
