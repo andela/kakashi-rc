@@ -97,9 +97,7 @@
     "twilio": "^2.11.1",
     "url": "^0.11.0",
     "velocity-animate": "^1.5.0",
-    "velocity-react": "^1.2.1"
-  },
-  "devDependencies": {
+    "velocity-react": "^1.2.1",
     "babel-eslint": "^7.2.1",
     "babel-plugin-lodash": "^3.2.11",
     "babel-preset-stage-2": "^6.22.0",
@@ -112,6 +110,9 @@
     "wdio-allure-reporter": "^0.1.2",
     "wdio-mocha-framework": "^0.5.9",
     "webdriverio": "^4.6.2"
+  },
+  "devDependencies": {
+
   },
   "postcss": {
     "plugins": {
