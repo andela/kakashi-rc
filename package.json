@@ -39,6 +39,7 @@
     "fibers": "^1.0.15",
     "flatten-obj": "^3.1.0",
     "font-awesome": "^4.7.0",
+    "google-libphonenumber": "^2.0.15",
     "griddle-react": "0.7.1",
     "handlebars": "^4.0.6",
     "i18next": "7.1.3",
