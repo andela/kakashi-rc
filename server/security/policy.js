@@ -43,6 +43,11 @@ BrowserPolicy.content.allowOriginForAll("disquscdn.com");
 BrowserPolicy.content.allowOriginForAll("twitter.com");
 BrowserPolicy.content.allowOriginForAll("*.twitter.com");
 BrowserPolicy.content.allowOriginForAll("*.twimg.com");
+BrowserPolicy.content.allowOriginForAll("twitter.com");
+BrowserPolicy.content.allowOriginForAll("*.twitter.com");
+BrowserPolicy.content.allowOriginForAll("ckeditor.com");
+BrowserPolicy.content.allowOriginForAll("*.ckeditor.com");
+
 
 BrowserPolicy.content.allowImageOrigin("fbcdn-profile-a.akamaihd.net");
 BrowserPolicy.content.allowImageOrigin("secure.gravatar.com");
