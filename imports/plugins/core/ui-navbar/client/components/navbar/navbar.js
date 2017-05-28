@@ -1,5 +1,6 @@
 import { FlatButton } from "/imports/plugins/core/ui/client/components";
 import { NotificationContainer } from "/imports/plugins/included/notifications/client/containers";
+import { playTour } from "/imports/plugins/included/tour/client/tour";
 import { Reaction } from "/client/api";
 import { Tags } from "/lib/collections";
 
@@ -13,6 +14,17 @@ Template.CoreNavigationBar.onCreated(function () {
   } else {
     this.state.set("searchEnabled", false);
   }
+});
+
+Template.CoreNavigationBar.onRendered(function () {
+  currentRoute = Router.getRouteName();
+  this.autorun(() => {
+    if (Accounts.findOne(Meteor.userId())) {
+      if (!Accounts.findOne(Meteor.userId()).takenTour && Accounts.findOne(Meteor.userId()).emails[0]) {
+        playTour();
+      }
+    }
+  });
 });
 
 /**
@@ -75,7 +87,16 @@ Template.CoreNavigationBar.helpers({
       }
     };
   },
-
+  TourButtonComponent() {
+    return {
+      component: FlatButton,
+      icon: "fa fa-blind",
+      kind: "flat",
+      onClick() {
+        playTour();
+      }
+    };
+  },
   tagNavProps() {
     const instance = Template.instance();
     const tags = Tags.find({
