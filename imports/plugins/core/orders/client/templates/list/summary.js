@@ -72,9 +72,19 @@ Template.ordersListSummary.events({
       updatedAt: new Date()
     };
 
+    let title;
+    if (order.workflow.status === "coreOrderWorkflow/completed") {
+      title = `This order has been shipped. 
+          The shipping fee will be deducted from your payment 
+          if you proceed to cancel the order. 
+          Are you sure you want to cancel this order?`;
+    } else {
+      title = "You are about to cancel the order you just placed!";
+    }
+
     /* eslint-disable no-undef*/
     Alerts.alert({
-      title: "You are about to cancel the order you just placed!",
+      title,
       showCancelButton: true,
       cancelButtonText: "No",
       confirmButtonText: "Yes"
