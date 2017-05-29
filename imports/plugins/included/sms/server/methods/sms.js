@@ -42,7 +42,10 @@ Meteor.methods({
     check(userId, String);
     check(shopId, String);
 
-    const user = Accounts.findOne();
+    const user = Accounts.findOne({
+      _id: userId
+    });
+
     const addressBook = user.profile.addressBook;
     let phone = false;
     // check for addressBook phone
