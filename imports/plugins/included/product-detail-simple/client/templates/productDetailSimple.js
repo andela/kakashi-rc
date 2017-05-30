@@ -1,5 +1,5 @@
 /* eslint-disable max-len*/
-import { ProductDetailContainer } from "../containers";
+import { ProductDetailContainer, PublishContainer } from "../containers";
 import { isRevisionControlEnabled } from "/imports/plugins/core/revisions/lib/api";
 import { Template } from "meteor/templating";
 import { ReactiveDict } from "meteor/reactive-dict";
