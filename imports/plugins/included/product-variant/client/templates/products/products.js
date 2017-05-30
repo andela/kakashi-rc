@@ -1,7 +1,7 @@
 import { Reaction } from "/client/api";
 import { ReactionProduct } from "/lib/api";
 import { applyProductRevision } from "/lib/api/products";
-import { Products, Tags } from "/lib/collections";
+import { Products, Tags, Accounts } from "/lib/collections";
 import { Session } from "meteor/session";
 import { Template } from "meteor/templating";
 import { ITEMS_INCREMENT } from "/client/config/defaults";
@@ -55,6 +55,7 @@ Template.products.onCreated(function () {
   // Update product subscription
   this.autorun(() => {
     const slug = Reaction.Router.getParam("slug");
+    const shopName = Reaction.Router.getParam("shopName");
     const tag = Tags.findOne({ slug: slug }) || Tags.findOne(slug);
     const scrollLimit = Session.get("productScrollLimit");
     let tags = {}; // this could be shop default implementation needed
@@ -85,7 +86,21 @@ Template.products.onCreated(function () {
     // we are caching `currentTag` or if we are not inside tag route, we will
     // use shop name as `base` name for `positions` object
     const currentTag = ReactionProduct.getTag();
-    const productCursor = Products.find({
+    let productCursor;
+    if (shopName) {
+      products = Products.find({
+        ancestors: [], reactionVendor: shopName
+        // keep this, as an example
+        // type: { $in: ["simple"] }
+      }, {
+        sort: {
+          [`positions.${currentTag}.position`]: 1,
+          [`positions.${currentTag}.createdAt`]: 1,
+          createdAt: 1
+        }
+      });
+    }    else {
+    productCursor = Products.find({
       ancestors: [],
       type: { $in: ["simple"] }
     }, {
@@ -122,6 +137,16 @@ Template.products.onRendered(() => {
 });
 
 Template.products.helpers({
+  shopDetails() {
+    if (Reaction.Router.getParam("shopName")) {
+      const shopName = Reaction.Router.getParam("shopName");
+      const vendor = Accounts.find({"profile.vendorDetails.0.shopName": shopName}).fetch();
+      if (vendor.length > 0 && vendor[0].profile !== undefined && vendor[0].profile.vendorDetails !== undefined) {
+        return (vendor[0].profile.vendorDetails[0]);
+      }
+    }
+    return undefined;
+  },
   tag: function () {
     const id = Reaction.Router.getParam("_tag");
     return {
