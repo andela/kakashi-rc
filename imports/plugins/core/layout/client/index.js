@@ -18,6 +18,7 @@ import "./templates/layout/notice/unauthorized.html";
 import "./templates/layout/notice/unauthorized.js";
 import "./templates/layout/layout.html";
 import "./templates/layout/layout.js";
-
+import "./templates/layout/static-page/staticPageView.html";
+import "./templates/layout/static-page/staticPageView.js";
 import "./templates/theme/theme.html";
 import "./templates/theme/theme.js";

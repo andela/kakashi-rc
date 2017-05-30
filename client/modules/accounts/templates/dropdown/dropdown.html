@@ -34,6 +34,12 @@
 <template name="accountsDropdownApps">
   <ul class="user-accounts-dropdown-apps">
     {{> userAccountsDropdown}}
+    {{#if currentUser}}
+      {{> visitPages}}
+    {{/if}}
+    {{#if hasAdminAccess}}
+      {{> pages}}
+    {{/if}}
     <!--administrative shortcut icons -->
     {{#each reactionApps reactionAppsOptions}}
       <li class="dropdown-apps-icon">
@@ -47,6 +53,30 @@
     {{/each}}
   </ul>
 </template>
+
+<template name="pages">
+  <li class="dropdown-apps-icon">
+   <a data-event-action="manage-pages">
+     <i class="fa fa-file-text-o" aria-hidden="true"></i>
+     <span class="icon-text">
+       Manage Pages
+     </span>
+   </a>
+  </li>
+</template>
+
+<template name="visitPages">
+  <li class="dropdown-apps-icon">
+   <a data-event-action="visit-pages" href={{slug}} class="visit-pages">
+     <i class="fa fa-file-o" aria-hidden="true"></i>
+     <span class="icon-text">
+       Visit Pages
+     </span>
+   </a>
+  </li>
+</template>
+
+
 
 <template name="userAccountsDropdown">
   <!--user account shortcut icons -->

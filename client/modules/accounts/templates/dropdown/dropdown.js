@@ -85,3 +85,9 @@ Template.accountsDropdownApps.helpers({
     };
   }
 });
+
+Template.loginDropdown.helpers({
+  slug() {
+    return `/shop/${Reaction.getShopId()}`;
+  }
+});
