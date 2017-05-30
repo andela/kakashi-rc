@@ -33,23 +33,27 @@
 </template>
 
 <template name="embedSocial">
-  <div class="row">
+  <div class="row embed-social">
     <div class="{{testDisplay.facebook}}">
       {{#if facebook}}
-      <h3 style =margin-left:100px>Facebook Feed</h3>
-      <iframe src={{facebook}} width="300" height="300"
-      style="border:none;overflow:hidden; margin-left:100px"
+      <h3>Facebook Feed</h3>
+      <iframe src={{facebook}} width="400px" height="480px"
+      style="border:none;overflow:hidden;"
       scrolling="yes" frameborder="0" allowTransparency="true"></iframe>
       {{/if}}
     </div>
-    <div class="{{testDisplay.twitter}}" style="margin-left:100px;
-     height: 300px; width: 300px;">
+    <div class="{{testDisplay.twitter}}" style="height: 480px;">
       {{#if twitter}}
       <h3>Tweeter Feed</h3>
-        <a class="twitter-timeline" href="{{twitter}}" data-tweet-limit= "2">Tweets by {{twitter}}</a>
+      <div class="twitter-embed-div">
+        <a class="twitter-timeline" href="{{twitter}}" data-tweet-limit= "3">Tweets by {{twitter}}</a>
         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
       {{/if}}
     </div>
   </div>
   <script id="dsq-count-scr" src="//krc-1.disqus.com/count.js" async></script>
+
+  <hr>
+  <h3 class="text-center">&copy; 2017 Andela, Kakashi Reaction Commerce.</h3>
 </template>
