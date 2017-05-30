@@ -6,7 +6,7 @@ import { Accounts } from "/lib/collections";
 const tour = introJs.introJs();
 const adminTourSteps = [
   {
-    intro: `<h2>Welcome to Reaction Commerce</h2>
+    intro: `<h2>Welcome to Kakashi Reaction Commerce</h2>
     <hr>
     <div>
       Reaction Commerce is the first open source, real-time platform to combine the flexibility developers a
@@ -160,7 +160,7 @@ const adminTourSteps = [
 
 const registeredBuyerTourSteps = [
   {
-    intro: `<h1>Welcome to Reaction Commerce</h1>
+    intro: `<h1>Welcome to Kakashi Reaction Commerce</h1>
     <hr>
     <div>
       Reaction Commerce is the first open source, real-time platform to combine the flexibility developers a
@@ -266,7 +266,7 @@ const registeredBuyerTourSteps = [
 
 const unregisteredBuyerTourSteps = [
   {
-    intro: `<h1>Welcome to Reaction Commerce</h1>
+    intro: `<h1>Welcome to Kakashi Reaction Commerce</h1>
     <hr>
     <div>
       Reaction Commerce is the first open source, real-time platform to combine the flexibility developers a
