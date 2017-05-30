@@ -24,9 +24,9 @@ Template.embedSocial.helpers({
     const checkFacebook = config.facebook.enabled;
     const checkTwitter = config.twitter.enabled;
     if (checkFacebook && checkTwitter) {
-      return { facebook: "col-sm-4", twitter: "col-sm-4" };
+      return { facebook: "col-sm-6", twitter: "col-sm-6" };
     } else if (checkFacebook && !checkTwitter) {
-      return { facebook: "col-sm-4", twitter: "" };
+      return { facebook: "col-sm-6", twitter: "" };
     }
     return {  facebook: "", twitter: "" };
   },
