@@ -1,8 +1,24 @@
 import { Reaction, Logger } from "/client/api";
-import { Tags } from "/lib/collections";
+import { Tags, Accounts } from "/lib/collections";
 import { Session } from "meteor/session";
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
+
+Template.staticPagesNav.onCreated(function () {
+  Meteor.subscribe("viewPages");
+});
+
+Template.staticPagesNav.helpers({
+  staticPages() {
+    let vendorId = "admin";
+    if (Router.getParam("shopName")) {
+      const shopName = Router.getParam("shopName");
+      vendorId = Collections.Accounts.findOne({ "profile.vendorDetails.0.shopName": shopName });
+      vendorId = vendorId._id;
+    }
+    return StaticPages.find({ shopId: Reaction.shopId, pageOwner: vendorId }).fetch();
+  }
+});
 
 Template.loginDropdown.events({
 
