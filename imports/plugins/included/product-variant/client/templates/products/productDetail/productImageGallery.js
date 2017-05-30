@@ -93,6 +93,9 @@ Template.productImageGallery.helpers({
   },
   variant: function () {
     return ReactionProduct.selectedVariant();
+  },
+  isAdminOrVendor() {
+    return Reaction.hasOwnerAccess() || Reaction.hasAdminAccess() || isProductVendor();
   }
 });
 
@@ -200,3 +203,10 @@ Template.productImageGallery.events({
       "src"));
   }
 });
+
+function isProductVendor() {
+  let isVendor = false;
+  const product = ReactionProduct.selectedProduct() || {};
+  if (Meteor.userId() === product.reactionVendorId) isVendor = true;
+  return isVendor;
+}

@@ -1,7 +1,7 @@
 import { FlatButton } from "/imports/plugins/core/ui/client/components";
 import { NotificationContainer } from "/imports/plugins/included/notifications/client/containers";
 import { Reaction } from "/client/api";
-import { Tags } from "/lib/collections";
+import { Tags, Accounts } from "/lib/collections";
 
 
 Template.CoreNavigationBar.onCreated(function () {
@@ -54,7 +54,18 @@ Template.CoreNavigationBar.helpers({
       return instance.state.get("searchTemplate");
     }
   },
+  shopDetails() {
+    let account;
+    console.log(Roles.userIsInRole(Meteor.userId(), ["vendor"], Reaction.shopId));
 
+    if (Roles.userIsInRole(Meteor.userId(), ["vendor"], Reaction.shopId)) {
+      account = Accounts.findOne({ userId: Meteor.userId() });
+      console.log(account);
+
+      return account.profile.vendorDetails[0];
+    }
+    return false;
+  },
   IconButtonComponent() {
     return {
       component: FlatButton,

@@ -68,6 +68,13 @@ Meteor.publish("Product", function (productId) {
       $in: [true, false]
     };
   }
+
+  if (Roles.userIsInRole(this.userId, ["createProduct", "vendor"],
+      shop._id)) {
+    selector.isVisible = {
+      $in: [true, false]
+    };
+  }
   // TODO review for REGEX / DOS vulnerabilities.
   if (productId.match(/^[23456789ABCDEFGHJKLMNPQRSTWXYZabcdefghijkmnopqrstuvwxyz]{17}$/)) {
     selector._id = productId;
