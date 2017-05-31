@@ -4,7 +4,7 @@
     "browser": true,
     "node": true,
     "es6": true,
-    "jquery" : true
+    "jquery": true
   },
   "globals": {
     "Meteor": true,
@@ -60,6 +60,7 @@
       "vars": "local",
       "args": "after-used"
     }],
+    "no-undef": 0,
     "no-use-before-define": [2, "nofunc"], // http://eslint.org/docs/rules/no-use-before-define
 
     /**
