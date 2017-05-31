@@ -114,7 +114,6 @@ const adminTourSteps = [
           You can always log back in by clicking the same account button next time.
         <l/i>
       <ol>
-      <img src= "/resources/admin_accounts.png" class="product-grid-item-images img-responsive">
     </div>`
   },
   {
@@ -130,19 +129,19 @@ const adminTourSteps = [
       Examples are:
       <ol>
         <li>
-          <strong>Dashboard: <span></strong><img src= "/resources/dashboard.png" class="product-grid-item-images img-responsive"></span>
+          <strong>Dashboard: To manage the application dashboard</span>
         </li>
         <li>
-          <strong>Orders: <span></strong><img src= "/resources/orders.png" class="product-grid-item-images img-responsive"></span>
+          <strong>Orders: To manage orders</span>
         </li>
         <li>
-          <strong>Accounts: <span></strong><img src= "/resources/admin_accounts.png" class="product-grid-item-images img-responsive"></span>
+          <strong>Accounts: To manage users accounts</span>
         </li>
         <li>
-          <strong>Actionable Analytics: <span></strong><img src= "/resources/actionable_analytics.png" class="product-grid-item-images img-responsive"></span>
+          <strong>Actionable Analytics: To view the application data in a more efficient way</span>
         </li>
         <li>
-          <strong>Add Products: <span></strong><img src= "/resources/add_product.png" class="product-grid-item-images img-responsive"></span>
+          <strong>Add Products: To create new products</span>
         </li>
       </ol>
     </div>`
@@ -249,7 +248,6 @@ const registeredBuyerTourSteps = [
           <strong>Sign-out:</strong> Here you can signout of the account. <br>
           You can log back in by clicking the same account button.
         </li>
-        <img src= "/resources/guest_account.png" class="product-grid-item-images img-responsive">
       </ol>
     </div>`
   },
