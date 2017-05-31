@@ -2,7 +2,7 @@ import { Reaction } from "/server/api";
 
 Reaction.registerPackage({
   label: "Static Page",
-  name: "krc-static-page",
+  name: "Static Pages",
   icon: "fa fa-file-text-o",
   autoEnable: true,
   registry: [{

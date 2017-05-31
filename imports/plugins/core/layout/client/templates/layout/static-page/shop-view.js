@@ -1,26 +1,26 @@
 import { Reaction } from "/client/api";
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
-import { StaticPage } from "/lib/collections";
+import { StaticPages } from "/lib/collections";
 
-import "./staticPageView.html";
+import "./shop-view.html";
 
-Template.staticPageView.onCreated(() => {
-  Meteor.subscribe("StaticPage");
+Template.shopView.onCreated(() => {
+  Meteor.subscribe("StaticPages");
 });
 
-Template.staticPageView.helpers({
+Template.shopView.helpers({
   getUrl() {
     return `${window.location.host}/shop/${Reaction.getShopId()}`;
   },
 
   loadPages() {
-    const page = StaticPage.find({
+    const pages = StaticPages.find({
       $and: [{
         shopId: Reaction.getShopId(),
         status: "publish"
       }]
     }).fetch();
-    return page;
+    return pages;
   }
 });
