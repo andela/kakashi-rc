@@ -1,0 +1,8 @@
+.introjs-tooltip {
+  min-width: 400px;
+  max-width: 500px;
+}
+.introjs-tooltiptext h2 {
+  color: #3E7293;
+  text-align: center;
+}

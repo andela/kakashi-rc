@@ -23,9 +23,37 @@
         {{> Template.dynamic template=template}}
         <!-- end template region -->
       {{/if}}
-
-      <footer class="reaction-navigation-footer footer-default">{{> Template.dynamic template=layoutFooter}}</footer>
+      {{>embedSocial}}
+      <footer class="reaction-navigation-footer footer-default">
+        {{> Template.dynamic template=layoutFooter}}
+        </footer>
     </main>
-
   {{/if}}
+
+</template>
+
+<template name="embedSocial">
+  <div class="row embed-social">
+    <div class="{{testDisplay.facebook}}">
+      {{#if facebook}}
+      <h3>Facebook Feed</h3>
+      <iframe src={{facebook}} width="400px" height="480px"
+      style="border:none;overflow:hidden;"
+      scrolling="yes" frameborder="0" allowTransparency="true"></iframe>
+      {{/if}}
+    </div>
+    <div class="{{testDisplay.twitter}}" style="height: 480px;">
+      {{#if twitter}}
+      <h3>Tweeter Feed</h3>
+      <div class="twitter-embed-div">
+        <a class="twitter-timeline" href="{{twitter}}" data-tweet-limit= "3">Tweets by {{twitter}}</a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  <script id="dsq-count-scr" src="//krc-1.disqus.com/count.js" async></script>
+
+  <hr>
+  <h3 class="text-center">&copy; 2017 Andela, Kakashi Reaction Commerce.</h3>
 </template>

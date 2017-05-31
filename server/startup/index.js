@@ -6,7 +6,7 @@ import Registry from "./registry";
 import Init from "./init";
 import Prerender from "./prerender";
 import { initTemplates } from "/server/api/core/templates";
-
+import restApi from "./restApi";
 
 export default function () {
   Accounts();
@@ -17,4 +17,5 @@ export default function () {
   Registry();
   Init();
   Prerender();
+  restApi();
 }
