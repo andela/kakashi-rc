@@ -2,7 +2,9 @@ import { FlatButton } from "/imports/plugins/core/ui/client/components";
 import { NotificationContainer } from "/imports/plugins/included/notifications/client/containers";
 import { playTour } from "/imports/plugins/included/tour/client/tour";
 import { Reaction } from "/client/api";
-import { Tags } from "/lib/collections";
+
+import { FlowROuter } from "meteor/kadira:flow-router-ssr";
+import { Tags, StaticPages } from "/lib/collections";
 
 
 Template.CoreNavigationBar.onCreated(function () {
