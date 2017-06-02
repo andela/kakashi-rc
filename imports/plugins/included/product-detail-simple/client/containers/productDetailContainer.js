@@ -323,6 +323,11 @@ function composer(props, onData) {
         editable = Reaction.hasPermission(["createProduct"]);
       }
 
+      // Keep track of product views when users visit
+      if (!editable) {
+        Meteor.call("ProductAnalytics/count", productId);
+      }
+
       const topVariants = ReactionProduct.getTopVariants();
 
       const storedCart = Cart.findOne();
