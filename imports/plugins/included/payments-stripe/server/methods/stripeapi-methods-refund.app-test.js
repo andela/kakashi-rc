@@ -11,11 +11,11 @@ describe("stripe/refund/create", function () {
     sandbox = sinon.sandbox.create();
   });
 
-  afterEach(function () {
+  afterEach(() => {
     sandbox.restore();
   });
 
-  it("should call StripeApi.methods.createRefund with the proper parameters and return saved = true", function (done) {
+  it("should call StripeApi.methods.createRefund with the proper parameters and return saved = true", function (done)  {
     const paymentMethod = {
       processor: "Stripe",
       storedCard: "Visa 4242",

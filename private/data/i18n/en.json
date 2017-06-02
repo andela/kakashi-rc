@@ -350,6 +350,7 @@
         "status": "Status",
         "completed": "Completed",
         "processing": "Processing",
+        "cancelled": "Cancelled",
         "destination": "Destination",
         "shipment": "Shipment",
         "payment": "Payment",
@@ -362,8 +363,7 @@
           "completed": "Completed",
           "canceled": "Canceled",
           "refunded": "Refunded"
-        },
-        "showMore": "Show More"
+        }
       },
       "orderShipping": {
         "shipTo": "Ship To",
